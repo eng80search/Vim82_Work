@@ -1,0 +1,32 @@
+diff --git a/runtime/vimrc_example.vim b/runtime/vimrc_example.vim
+index 3017a6cf9..0c439b861 100644
+--- a/runtime/vimrc_example.vim
++++ b/runtime/vimrc_example.vim
+@@ -36,16 +36,18 @@ endif
+ augroup vimrcEx
+   au!
+ 
+-  " For all text files set 'textwidth' to 78 characters.
+-  autocmd FileType text setlocal textwidth=78
++  " +kaoriya: disabled, this is hard to repressed.
++  "" For all text files set 'textwidth' to 78 characters.
++  "autocmd FileType text setlocal textwidth=78
+ augroup END
+ 
+ " Add optional packages.
+ "
+-" The matchit plugin makes the % command work better, but it is not backwards
+-" compatible.
+-" The ! means the package won't be loaded right away but when plugins are
+-" loaded during initialization.
+-if has('syntax') && has('eval')
+-  packadd! matchit
+-endif
++" +kaoriya: disabled, this is hard to repressed.
++"" The matchit plugin makes the % command work better, but it is not backwards
++"" compatible.
++"" The ! means the package won't be loaded right away but when plugins are
++"" loaded during initialization.
++"if has('syntax') && has('eval')
++"  packadd! matchit
++"endif

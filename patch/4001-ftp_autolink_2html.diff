@@ -1,0 +1,17 @@
+# HG changeset patch
+# Parent 807be0c0123627aceb90dfa3d9a39938387261d4
+Make 2html.vim auto link URL which starts 'ftp'
+
+diff --git a/runtime/syntax/2html.vim b/runtime/syntax/2html.vim
+index 1e85bc509..c48ff3e4b 100644
+--- a/runtime/syntax/2html.vim
++++ b/runtime/syntax/2html.vim
+@@ -1894,7 +1894,7 @@ endif
+ " Add hyperlinks
+ " TODO: add option to not do this? Maybe just make the color the same as the
+ " text highlight group normally is?
+-%s+\(https\=://\S\{-}\)\(\([.,;:}]\=\(\s\|$\)\)\|[\\"'<>]\|&gt;\|&lt;\|&quot;\)+<a href="\1">\1</a>\2+ge
++%s+\(\%(https\=\|ftp\)://\S\{-}\)\(\([.,;:}]\=\(\s\|$\)\)\|[\\"'<>]\|&gt;\|&lt;\|&quot;\)+<a href="\1">\1</a>\2+ge
+ 
+ " The DTD
+ if s:settings.use_xhtml

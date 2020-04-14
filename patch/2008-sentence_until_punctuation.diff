@@ -1,0 +1,39 @@
+# HG changeset patch
+# Parent bf0b31d6c719c20d5b5e98b66e6d6f77c601a333
+diff --git a/src/search.c b/src/search.c
+index 1a5dc1a42..7a97b2ee9 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -2892,7 +2892,8 @@ findsent(int dir, long count)
+ 	// go back to the previous non-white non-punctuation character
+ 	found_dot = FALSE;
+ 	while (c = gchar_pos(&pos), VIM_ISWHITE(c)
+-				|| vim_strchr((char_u *)".!?)]\"'", c) != NULL)
++				|| vim_strchr((char_u *)".!?)]\"'", c) != NULL
++				|| ((*mb_char2len)(c) > 1 && mb_get_class(ml_get_pos(&pos)) == 1))
+ 	{
+ 	    tpos = pos;
+ 	    if (decl(&tpos) == -1 || (LINEEMPTY(tpos.lnum) && dir == FORWARD))
+@@ -2941,6 +2942,22 @@ findsent(int dir, long count)
+ 		    break;
+ 		}
+ 	    }
++	    if (has_mbyte && (*mb_char2len)(c) > 1
++		    && mb_get_class(ml_get_pos(&pos)) == 1)
++	    {
++		tpos = pos;
++		for (;;)
++		{
++		    c = inc(&tpos);
++		    if (c == -1 || (*mb_char2len)(c) <= 1
++			    || mb_get_class(ml_get_pos(&tpos)) != 1)
++			break;
++		}
++		pos = tpos;
++		if (gchar_pos(&pos) == NUL)
++		    inc(&pos);
++		break;
++	    }
+ 	    if ((*func)(&pos) == -1)
+ 	    {
+ 		if (count)

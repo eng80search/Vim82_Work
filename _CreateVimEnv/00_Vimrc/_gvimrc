@@ -1,0 +1,59 @@
+
+"---------------------------------------------------------------------------
+" ウインドウに関する設定:
+"
+" ウインドウの幅
+set columns=120
+" ウインドウの高さ
+set lines=35
+" コマンドラインの高さ(GUI使用時)
+set cmdheight=2
+"---------------------------------------------------------------------------
+" カラー設定:
+colorscheme  onedark
+"colorscheme  kalisi
+"set background=light
+
+"LuciusWhite
+"LuciusDarkHighContrast
+"LuciusBlackHighContrast
+"LuciusWhiteLowContrast
+
+""メニュー表示文字化け設定
+"source $VIMRUNTIME/delmenu.vim
+"set langmenu=ja_jp.utf-8
+"source $VIMRUNTIME/menu.vim
+
+"スクロールスペースはなしにする
+"scrolloff    number of screen lines to show around the cursor
+set so=0
+
+""フォント設定
+"set guifont=Ricty_for_Powerline:h14
+""全角文字設定
+"set guifontwide=Ricty_for_Powerline:h14
+
+"plugin setting: vim-bookmarks
+highlight BookmarkSign guibg=blue guifg=yellow
+
+"UTF8文字化け対策
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
+
+"Vim 8.1から追加されたターミナルにおいて、背景色を黒に変更する
+hi Terminal guibg=black
+
+" vimを起動時に最大化する
+au GUIEnter * simalt ~x
+
+" UTF-8モードにする
+set enc=utf-8
+
+" フォント設定
+set guifont=Ricty_Diminished:h13
+" 全角文字の設定
+set guifontwide=Ricty_Diminished:h13
+
+" DirectXを有効にする
+set rop=type:directx,geom:1,renmode:5
