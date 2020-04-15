@@ -8,6 +8,10 @@ call plug#begin('$VIM/plugins')
     " NERD commenter
     Plug 'scrooloose/nerdcommenter'
 
+    " vim-session
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-session'
+
     "tagbar
     Plug 'majutsushi/tagbar'
 
@@ -57,7 +61,8 @@ call plug#begin('$VIM/plugins')
     Plug 'cohama/lexima.vim'
 
     "extended % matching for Many Fromats
-    Plug 'tmhedberg/matchit'
+    " Plug 'tmhedberg/matchit'
+    Plug 'andymass/vim-matchup'
 
     "A Vim plugin for Windows PowerShell support
     Plug 'PProvost/vim-ps1'

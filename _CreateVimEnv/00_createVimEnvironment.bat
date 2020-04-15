@@ -13,6 +13,7 @@ REM  00_Vimrcはフォルダごとにコピーする
 echo D | xcopy 00_Vimrc\*.* ..\ /d /y /c /s /e /h /r
 REM  01_vimfilesはフォルダごとにコピーする
 echo D | xcopy 01_VimFiles\*.* ..\ /d /y /c /s /e /h /r
+echo D | xcopy 10_Plugin\kaoriya ..\plugins /d /y /c /s /e /h /r
 copy 10_Plugin\plug.vim ..\vim82\autoload
 copy 20_Exe\*.* ..\
 copy 30_Git\.gitignore ..\

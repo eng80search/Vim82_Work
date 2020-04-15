@@ -119,6 +119,13 @@ let g:MRU_Use_CursorLine = 1
 
 
 "--------------------------------------------------------------------------------
+"vim-session Setting
+"--------------------------------------------------------------------------------
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
+
+"--------------------------------------------------------------------------------
 "Tagbarの設定
 "--------------------------------------------------------------------------------
 nnoremap <silent><C-a> :TagbarToggle<CR>
@@ -184,16 +191,11 @@ nmap <F8> :ToggleNERDTreeAndTagbar<CR>
 
    function! LightlineFilename()
      return ('' != expand('%:p') ? '[Buf:'.bufnr('%').'] '.expand('%:p') : '[Buf:'.bufnr('%').'] '.'(No Name)')
-     " return ('' != expand('%:p') ? expand('%:p') : '(No Name)')
    endfunction
 
     function! LightlineReadonly()
       return &readonly && &filetype !=# 'help' ? 'RO' : ''
     endfunction
-
-    " function! LightlineBufnum()
-    "   return '[Buf:'.bufnr('%').'] '
-    " endfunction
 
 let g:lightline = {
           \ 'active': {
@@ -296,56 +298,6 @@ nmap mn <Plug>BookmarkNext
 nmap mp <Plug>BookmarkPrev
 nmap mx <Plug>BookmarkClearAll
 
-"Default is bellow
-"Add/remove bookmark at current line        mm    :BookmarkToggle
-"Add/edit/remove annotation at current line mi    :BookmarkAnnotate<TEXT>
-"Jump to next bookmark in buffer            mn    :BookmarkNext
-"Jump to previous bookmark in buffer        mp    :BookmarkPrev
-"Show all bookmarks (toggle)                ma    :BookmarkShowAll
-"Clear bookmarks in current buffer only     mc    :BookmarkClear
-"Clear bookmarks in all buffers             mx    :BookmarkClearAll
-"
-
-"--------------------------------------------------------------------------------
-"QuickRun Setting
-"--------------------------------------------------------------------------------
-"出力結果を下に表示する
-
-
-" if !exists("g:quickrun_config")
-"     let g:quickrun_config={}
-" endif
-" "let g:quickrun_config = {}
-"
-" "一般の設定
-" let g:quickrun_config["_"] = {
-"       \ 'runner'    : 'system',
-"       \ 'outputter' : 'error',
-"       \ 'outputter/error/success' : 'buffer',
-"       \ 'outputter/error/error'   : 'quickfix',
-"       \ 'outputter/buffer/split'  : ':rightbelow 10sp',
-"       \ 'outputter/buffer/close_on_empty' : 1,
-"       \ }
-"
-" "powershellの専用設定
-" let g:quickrun_config["ps1"] = {
-"       \   "hook/output_encode/enable" : 1,
-"       \   "hook/output_encode/encoding" : "cp932",
-"       \   'command' : 'powershell.exe',
-"       \   'exec' : '%c   %s',
-"       \ }
-"
-" "Pthone Utf8文字化け対策
-" if has('win32') || has('win64')
-"     let g:quickrun_config['python'] = {
-"     \   "hook/output_encode/enable" : 1,
-"     \   "hook/output_encode/encoding" : "cp932",
-"     \}
-" endif
-" "ショットカットキー
-" nnoremap <silent> <F9> :QuickRun<CR>
-
-
 "--------------------------------------------------------------------------------
 "vim-python/python-syntax Setting
 "--------------------------------------------------------------------------------
@@ -367,7 +319,11 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCustomDelimiters = {
+            \ 'xml': { 'left': '<!--', 'right': '--!>' },
+            \'c': { 'left': '/**','right': '*/' } 
+            \ }
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
@@ -377,17 +333,18 @@ let g:NERDTrimTrailingWhitespace = 1
 
 
 "--------------------------------------------------------------------------------
-"tmhedberg/matchit Setting
+"andymass/vim-matchup Setting
 "--------------------------------------------------------------------------------
-let g:match_ignorecase = 1
-" let g:match_words = "<\t*begin>:<\t*end>"
-let g:match_words = "\v^\tbegin$:\v^\tend$"
+let g:matchup_matchparen_offscreen = {}
+" 入れ子探しの深さを3500にする
+let g:matchup_delim_stopline       = 3500 
 
 "--------------------------------------------------------------------------------
 "vim 8.1 terminal Setting
 "--------------------------------------------------------------------------------
 function! GitBash()
     " 日本語Windowsの場合`ja`が設定されるので、入力ロケールに合わせたUTF-8に設定しなおす
+    " \ 'LANG': systemlist('"C:/Users/gri1/AppData/Local/Programs/Git/usr/bin/locale.exe" -iU')[0],
     let l:env = {
                 \ 'LANG': systemlist('"C:/Program Files/Git/usr/bin/locale.exe" -iU')[0],
                 \ }
@@ -401,6 +358,7 @@ function! GitBash()
     endif
 
     " term_startでgit for windowsのbashを実行する
+    " call term_start(['C:/Users/gri1/AppData/Local/Programs/Git/bin/bash.exe', '-l'], {
     call term_start(['C:/Program Files/Git/bin/bash.exe', '-l'], {
                 \ 'term_finish': 'close',
                 \ 'cwd': expand('%:p:h'),
