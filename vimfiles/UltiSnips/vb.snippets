@@ -1,0 +1,162 @@
+priority -50
+
+###########################################################################
+#                            コメント
+###########################################################################
+snippet commentstart "commnet" b
+' 2020/03/31 freeWordSearch START ADD
+endsnippet
+
+snippet commentend "commnet" b
+' 2020/03/31 freeWordSearch END ADD
+endsnippet
+
+###########################################################################
+#                            定数宣言
+###########################################################################
+snippet con "Const" b
+Const ${1:varName} As ${2:dataType}
+endsnippet
+
+###########################################################################
+#                            変数宣言
+###########################################################################
+snippet dim "Dim" b
+Dim ${1:varName} As ${2:varType}
+endsnippet
+
+###########################################################################
+#                            静的配列宣言
+###########################################################################
+snippet arrays "ArrayStatic" b
+Dim ${1:arrayNameStatic}() As ${2:arrayTypeStatic}
+endsnippet
+
+###########################################################################
+#                            動的配列宣言
+###########################################################################
+snippet arrayd "ArrayDynamic" b
+Dim ${1:arrayNameDynamic} As New List(Of ${2:arrayTypeDynamic})()
+endsnippet
+
+###########################################################################
+#                            連想配列宣言
+###########################################################################
+snippet hash "ArrayHash" b
+Dim ${1:arrayNameHash} As New Hashable
+endsnippet
+
+###########################################################################
+#                            制御：If
+###########################################################################
+snippet if "if EndIf" b
+If ${1:conditionExpression} Then
+	${2:statements}
+End If
+endsnippet
+
+snippet ifelse "if Else EndIf" b
+If ${1:conditionExpression} Then
+	${2:statementsIf}
+Else
+	${3:statementsElse}
+End If
+endsnippet
+
+snippet ifelseif "if ElseIf Else EndIf" b
+If ${1:conditionExpression} Then
+	${2:statementsIf}
+Else If
+	${3:statementsElseIf}
+Else
+	${4:statementsElse}
+End If
+endsnippet
+
+###########################################################################
+#                            制御：Case
+###########################################################################
+snippet case "select case" b
+Dim ${1:varName} As ${2:varType} = 
+
+Select ${1:varName}
+
+	Case ${3:varCase}
+		${4:caseStatements}
+
+	Case ${5:varCase}
+		${6:caseStatements}
+
+	Case Else
+		${7:caseStatements}
+
+End Select
+endsnippet
+
+###########################################################################
+#                            制御：For Next
+###########################################################################
+snippet for "For Next" b
+For ${1:index} As ${2:Integer} = ${3:1} To ${4:10}
+	${5:forStatements}
+Next ${1}
+endsnippet
+
+###########################################################################
+#                            制御：For Each Next
+###########################################################################
+snippet for "For Each Next" b
+For Each ${1:item} As ${2:String} In ${3:list}
+	${4:forEachStatements}
+Next 
+endsnippet
+
+###########################################################################
+#                            制御：Try Catch
+###########################################################################
+snippet try "try catch" b
+Try
+
+	${1:tryStatements}
+
+Catch ex As System.Exception
+	${2:catchStatements}
+End Try
+endsnippet
+
+###########################################################################
+#                            定義：Functions
+###########################################################################
+snippet func "Function" b
+' ${1:add comment}
+Function ${2:functionName}(${3:param}) As ${4:returnType}
+	
+	${5:funtionStatments}
+	
+End Function
+endsnippet
+
+###########################################################################
+#                            定義：Sub
+###########################################################################
+snippet sub "Sub" b
+' ${1:add comment}
+Private|Protected Sub ${2:subName}(${3:param})
+	
+	${4:subStatments}
+	
+End Sub
+endsnippet
+
+###########################################################################
+#                            定義：Class
+###########################################################################
+snippet class "Class" b
+' ${1:add comment}
+Partial Public Class ${2:ClassName}
+	Inherits AcuvuePC.App_Code.BasePage
+	
+	${3:classStatments}
+
+End Class
+endsnippet

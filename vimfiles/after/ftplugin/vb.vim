@@ -1,7 +1,7 @@
 " Vim filetype plugin file
 " Language: vb
 "
- echo "This is Vb ftplugin"
+ " echo "This is Vb ftplugin"
 
  if exists("b:did_ftplugin_vb") | finish | endif
  let b:did_ftplugin_vb = 1
