@@ -160,6 +160,11 @@ nmap <silent>,scp       :SQLU_CreateProcedure<CR>
 "プラグインsqlutilのメニュー非表示
 :let  g:sqlutil_default_menu_mode = 0
 
+""--------------------------------------------------------------------------------
+""indentLine Setting
+""--------------------------------------------------------------------------------
+let g:indentline_enabled = 0
+autocmd FileType html,js,javascript,python,vb IndentLinesEnable
 
 ""--------------------------------------------------------------------------------
 ""データベースアクセス用設定（dbext.vim）

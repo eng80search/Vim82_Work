@@ -144,6 +144,11 @@ call plug#begin('$VIM/plugins')
     Plug 'prabirshrestha/asyncomplete-buffer.vim'
     Plug 'prabirshrestha/asyncomplete-file.vim'
 
+    " Display and vavigate marks
+    Plug 'kshenoy/vim-signature'
+
+    " A vim plugin to display the indention levels with thin vertical lines
+    Plug 'Yggdroot/indentLine'
 
     " Vim syntax highlighting for Vue components
     " And also work in ALE with install eslint and eslint-plugin-vue using npm
