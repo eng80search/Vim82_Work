@@ -51,9 +51,11 @@ au GUIEnter * simalt ~x
 set enc=utf-8
 
 " フォント設定
-set guifont=Ricty_Diminished:h13
+set guifont=Cica:h13.5
 " 全角文字の設定
-set guifontwide=Ricty_Diminished:h13
+set guifontwide=Cica:h13.5
+" アイコン半角表示防止用
+set ambiwidth=double
 
 " DirectXを有効にする
 set rop=type:directx,geom:1,renmode:5
