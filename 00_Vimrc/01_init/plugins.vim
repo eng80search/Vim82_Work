@@ -449,18 +449,6 @@ nmap <F12>  <Plug>EasyDebuggerSetBreakPoint
 " let g:NERDTreeExtensionHighlightColor = {}
 " let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
 
-"--------------------------------------------------------------------------------
-" vim-indent-guides setting
-"--------------------------------------------------------------------------------
-" Disable the plugin on Vim startUp
-let g:indent_guides_enable_on_vim_startup = 0
-
-set ts=4 sw=4 et
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-
-autocmd FileType html,js,python IndentGuidesEnable
-" autocmd FileType js IndentGuidesEnable
 
 " Vim8でvim-lspとasyncomplete関連でvue-language-serverを使う(細かいオプションは省略)
 " [asyncomplete] Force refresh completion
