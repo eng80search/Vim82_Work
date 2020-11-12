@@ -167,30 +167,5 @@ call plug#begin('$VIM/plugins')
     " json format plugin
     Plug 'eng80search/jsonformat.vim'
 
-    " NERD syntax highlighting
-    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    "" dbext.vim
-    "Plug 'vim-scripts/dbext.vim'
-
-    "" twig syntax highlighting
-    "Plug 'evidens/vim-twig'
-
-
-    " Git Plugin shows a git diff in the gutter and stages/undoes hunks
-    " Plug 'airblade/vim-gitgutter'
-
-    "" NERDTree and Tagbar combined in one windows
-    "Plug 'pseewald/nerdtree-tagbar-combined'
-
-    "" Customize statusbar
-
-    "" powerline-extra-symbols
-    "Plug 'ryanoasis/powerline-extra-symbols'
-
-    "" grep.vim
-    "Plug 'vim-scripts/grep.vim'
-
-    "" python3 Plugin : debug Tool
-    "Plug 'joonty/vdebug'
 
 call plug#end()
