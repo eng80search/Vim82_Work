@@ -164,6 +164,9 @@ call plug#begin('$VIM/plugins')
     " vim_current_word plugin 
     Plug 'dominikduda/vim_current_word'
 
+    " json format plugin
+    Plug 'eng80search/jsonformat.vim'
+
     " NERD syntax highlighting
     " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     "" dbext.vim

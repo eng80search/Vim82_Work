@@ -607,3 +607,6 @@ autocmd FileType vue syntax sync fromstart
 " Disable The word under cursor
 let g:vim_current_word#highlight_current_word = 0
 let g:vim_current_word#highlight_only_in_focused_window = 1
+
+" json format plugin settings
+command! FormatJson %!python -m json.tool
