@@ -59,3 +59,6 @@ set ambiwidth=double
 
 " DirectXを有効にする
 set rop=type:directx,geom:1,renmode:5
+
+" wim_current_word plugin Settings
+hi CurrentWordTwins guibg=#696969

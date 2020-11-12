@@ -511,7 +511,7 @@ imap <C-x><C-u> <Plug>(asyncomplete_force_refresh)
 " Opens preview windows as normal windows
 let g:lsp_preview_float = 1
 " カーソルにある定義を参照しているすべてのところをハイライトする
-let g:lsp_highlight_references_enabled = 1
+" let g:lsp_highlight_references_enabled = 1
 
 " disable diagnostic in lsp
 let g:lsp_diagnostics_enabled = 0
@@ -522,7 +522,9 @@ nmap <F4> :LspDefinition<CR>
 "Ale plugin Setting that Check syntax in Vim asynchronously and fix files 
 "To use this plugin, need install checkTool like flake8.
 " 左端のシンボルカラムを表示したままにする
-let g:ale_sign_column_always = 1
+" let g:ale_sign_column_always = 1
+" lintした結果、問題箇所をハイライトしない
+let g:ale_set_highlights = 0
 " let g:ale_change_sign_column_color = 1
 " シンボルを変更する
 let g:ale_sign_error = ' X'
@@ -594,3 +596,14 @@ endif
 
 " vim-vue highlight setting
 autocmd FileType vue syntax sync fromstart
+
+
+" Plugin 'E:\00_OurFamily\00_Develop\33_Git\00_vim82_Home\plugins\jsonformat'
+
+" mark操作
+" m.-> マーク追加削除 m(space)->すべてのマークを削除 m/->マークリスト一覧表示 `[ ->次のマークへジャンプ`
+
+" vim_current_word plugins settings
+" Disable The word under cursor
+let g:vim_current_word#highlight_current_word = 0
+let g:vim_current_word#highlight_only_in_focused_window = 1

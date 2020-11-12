@@ -161,6 +161,9 @@ call plug#begin('$VIM/plugins')
                 \ 'do': 'yarn install',
                 \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
+    " vim_current_word plugin 
+    Plug 'dominikduda/vim_current_word'
+
     " NERD syntax highlighting
     " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     "" dbext.vim
