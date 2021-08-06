@@ -1,7 +1,7 @@
 " Vim filetype plugin file
 " Language: javascript
 "
- echo "This is Javascript ftplugin"
+ " echo "This is Javascript ftplugin"
 
  if exists("b:did_ftplugin_javascript") | finish | endif
  let b:did_ftplugin = 1

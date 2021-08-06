@@ -136,8 +136,8 @@ nmap * *zz
 nmap # #zz
 
 "段落移動後は画面真ん中に表示する
-nnoremap  { {zz
-nnoremap  } }zz
+" nnoremap  { {zz
+" nnoremap  } }zz
 nnoremap  [[ [[zz
 nnoremap  ]] ]]zz
 
@@ -334,3 +334,17 @@ set updatetime=2
 
 " 差分モードのファイルを一気に消す
 :command Bdd bd|bd
+
+
+" VimのWindowサイズを変更する際に、複数のWindowの場合は、高さ、幅を均等にする
+augroup ReduceNoise
+    autocmd!
+    " Automatically resize active split to 85 width
+    " autocmd WinEnter * :call ResizeSplits()
+    autocmd VimResized * :call ResizeSplits()
+augroup END
+
+function! ResizeSplits()
+    " set winwidth=85
+    wincmd =
+endfunction

@@ -155,7 +155,7 @@ call plug#begin('$VIM/plugins')
     Plug 'posva/vim-vue'
 
     " A Vim plugin for Prettier
-    " Plug 'prettier/vim-prettier'
+    Plug 'prettier/vim-prettier'
     " post install (yarn install | npm install) then load plugin only for editing supported files
     Plug 'prettier/vim-prettier', {
                 \ 'do': 'yarn install',
