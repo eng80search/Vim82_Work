@@ -95,6 +95,18 @@ autocmd BufWinEnter * call NERDTreeAutoUpdate()
 "close vim if the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" rg があれば使う
+ if executable('rg')
+   " set grepprg=rg\ --vimgrep
+   let &grepprg= 'rg --vimgrep --smart-case'
+   set grepformat=%f:%l:%c:%m
+ endif
+
+" 自動QuickFix
+augroup GrepCmd
+    autocmd!
+    autocmd QuickFixCmdPost vim,grep,make if len(getqflist()) != 0 | copen | endif
+augroup END
 
 "--------------------------------------------------------------------------------
 "vim-nerdtree-syntax-highlight
@@ -509,8 +521,8 @@ let g:ale_set_highlights = 0
 " シンボルを変更する
 let g:ale_sign_error = ' X'
 let g:ale_sign_warning = ' !'
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
 " let g:ale_open_list = 1
 let g:ale_echo_msg_error_str = 'Error'
 let g:ale_echo_msg_warning_str = 'Warning'
