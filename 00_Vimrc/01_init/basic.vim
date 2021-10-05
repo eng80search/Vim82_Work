@@ -83,7 +83,7 @@ set nowrap  "折り返し禁止
 "********************************************************************************
 set laststatus =2 "ステータス行を常に表示
 set statusline=%F%r%6n(BufNo.)%8L(TotalRow)%8p%%%8l,%c%=TYPE=%y[ENC=%{&fenc}] "ファイルパスの設定 パーセント、行、列設定
-"set cmdheight =2  "メッセージ表示欄を２行確保
+set cmdheight =2  "メッセージ表示欄を２行確保
 set showmatch      "対応する括弧を強調表示
 set list           "不可視文字を表示
 
