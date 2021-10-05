@@ -95,6 +95,26 @@ autocmd BufWinEnter * call NERDTreeAutoUpdate()
 "close vim if the only window left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"--------------------------------------------------------------------------------
+"vim-fzf Setting
+"--------------------------------------------------------------------------------
+" Empty value to disable preview window altogether
+" let g:fzf_preview_window = ''
+" let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+" デフォルトではpreview windowを表示しない。切り替えスイッチはCtrl -
+let g:fzf_preview_window = ['right:50%:hidden', 'ctrl-/']
+
+" 使用例1： :Rg 202[01]/\d{2}/\d{2} -g *.vb(ファイル拡張子指定) -g !*.vbproj(検索排除指定) ../AcuvueCoomon/ ← (一つ上のディレクトリを指定)
+" 使用例2： :Rg 202[01]/\d{2}/\d{2} --no-ignore  ./js  ←（現在のディレクトリの下の特定のサブフォルダを指定）
+" よく使うoption : --no-ignore  (gitignoreに登録されているフォルダ、ファイルを検索対象にする際に使う)
+" 検索文字 Abc -> 大文字小文字区分あり abc -> 大文字小文字区分なし
+
+" ripgrep setting in fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case  --sort path '.<q-args>, 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
 " rg があれば使う
  if executable('rg')
    " set grepprg=rg\ --vimgrep

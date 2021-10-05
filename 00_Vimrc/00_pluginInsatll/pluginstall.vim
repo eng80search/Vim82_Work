@@ -76,7 +76,10 @@ call plug#begin('$VIM/plugins')
     " "A code-completion engine for Vim
     " Plug 'Valloric/YouCompleteMe'
 
-    "fuzzy finder Plugin
+    " " "fuzzy finder Plugin
+    " {'do': ・・・はインストールしない。fzf.exeフィアルをダウンロードすればOK}
+    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
 
     " " Git Plugin
