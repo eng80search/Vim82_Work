@@ -622,3 +622,7 @@ let g:vim_current_word#highlight_only_in_focused_window = 1
 
 " json format plugin settings
 command! FormatJson %!python -m json.tool
+
+" make実行後にQuickfixに出力されるエンコーディングをシステムロケールにする
+" 文字化け対策
+set makeencoding=char  
