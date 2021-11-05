@@ -115,7 +115,12 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case  --sort path '.<q-args>, 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-" rg があれば使う
+" rg があれば:grepでrgを使う
+" 使用例： Session("acuvuePC.freeword")を検索する際に
+" grep! session.\"acuvuepc\.freeword\".
+" 注意点：
+"         1. エスケープする際には\を使う
+"         2. なぜか「(」と「)」は検索できないため、「.」で代用する
  if executable('rg')
    " set grepprg=rg\ --vimgrep
    let &grepprg= 'rg --vimgrep --smart-case'
@@ -623,6 +628,8 @@ let g:vim_current_word#highlight_only_in_focused_window = 1
 " json format plugin settings
 command! FormatJson %!python -m json.tool
 
-" make実行後にQuickfixに出力されるエンコーディングをシステムロケールにする
-" 文字化け対策
-set makeencoding=char  
+" 以下削除。理由としてquickfix全体の設定に影響するため
+" pythonファイルのみエンコーディングを変更するようにした
+" " make実行後にQuickfixに出力されるエンコーディングをシステムロケールにする
+" " 文字化け対策
+" " set makeencoding=char

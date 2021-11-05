@@ -11,7 +11,7 @@ end
 
 " autocmd FileType qf nnoremap <buffer> <Enter> <C-W><Enter><C-W>T
 
-highlight QuickFixError guifg=red
+highlight QuickFixError guifg=#ff7d66
 highlight QuickFixWarning ctermbg=red
 match QuickFixError /\v^.+error:.+$/
 2match QuickFixWarning /^.*warning:.*$/
